@@ -57,3 +57,27 @@ const longBooksTitles = longBooks.map((book) => book.title);
 
 console.log(longBooks);
 console.log(longBooksTitles);
+
+//snack 2
+
+const availableBooks = books.filter((book) => book.available === true);
+
+console.log(availableBooks);
+
+const discountedBooks = availableBooks.map((book) => {
+  const priceNumber = parseFloat(book.price.replace("€", ""));
+  const discountedPrice = (priceNumber * 0.8).toFixed(2);
+  return {
+    ...book,
+    price: discountedPrice + "€",
+  };
+});
+
+console.log("i libi scontati sono :", discountedBooks);
+
+const fullPricedBook = discountedBooks.find((book) => {
+  const priceNumber = parseFloat(book.price.replace("€", ""));
+  return priceNumber % 1 === 0;
+});
+
+console.log(fullPricedBook);
