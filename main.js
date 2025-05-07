@@ -44,3 +44,16 @@ const books = [
     tags: ["html", "advanced", "junior", "mid-senior"],
   },
 ];
+
+// snack 1
+
+function somma(a, b) {
+  return a + b;
+}
+
+const longBooks = books.filter((book) => book.pages > 300);
+
+const longBooksTitles = longBooks.map((book) => book.title);
+
+console.log(longBooks);
+console.log(longBooksTitles);
