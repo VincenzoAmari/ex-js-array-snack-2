@@ -94,3 +94,12 @@ if (areAuthorsAdults) {
 }
 
 console.log(areAuthorsAdults);
+
+// snack 4
+
+const ages = books.map((book) => book.author.age);
+const agesSum = ages.reduce((acc, age) => {
+  return acc + age;
+}, 0);
+
+console.log(agesSum / ages.length);
