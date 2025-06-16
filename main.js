@@ -104,3 +104,11 @@ const agesSum = ages.reduce((acc, age) => {
 }, 0);
 
 console.log(agesSum / ages.length);
+
+//snack 6
+
+const areThereAvailableBooks = books.some((books) => books.available);
+
+const booksByPrice = [...books].sort((a, b) => a.price - b.price);
+
+const booksByPricein = booksByPrice.sort((a, b) => a.available - b.available);
