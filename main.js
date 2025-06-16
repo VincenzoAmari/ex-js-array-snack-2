@@ -112,3 +112,13 @@ const areThereAvailableBooks = books.some((books) => books.available);
 const booksByPrice = [...books].sort((a, b) => a.price - b.price);
 
 const booksByPricein = booksByPrice.sort((a, b) => a.available - b.available);
+
+//snack 7
+
+const tagCounts = books
+  .map((book) => book.tags)
+  .reduce((acc, tags) => acc.concat(tags), [])
+  .reduce((acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+  }, {});
