@@ -125,11 +125,17 @@ getBooks(ids).then((books) => console.log(books));
 
 //snack 6
 
-const areThereAvailableBooks = books.some((books) => books.available);
+const areThereAvailableBooks = books.some((book) => book.available);
 
-const booksByPrice = [...books].sort((a, b) => a.price - b.price);
+const booksByPrice = [...books].sort((a, b) => {
+  const priceA = parseFloat(a.price.replace("€", ""));
+  const priceB = parseFloat(b.price.replace("€", ""));
+  return priceA - priceB;
+});
 
-const booksByPricein = booksByPrice.sort((a, b) => a.available - b.available);
+booksByPrice.sort((a, b) => {
+  return a.available === b.available ? 0 : a.available ? -1 : 1;
+});
 
 //snack 7
 
