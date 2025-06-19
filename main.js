@@ -105,6 +105,24 @@ const agesSum = ages.reduce((acc, age) => {
 
 console.log(agesSum / ages.length);
 
+// snack 5
+
+const ids = [2, 13, 7, 21, 19];
+
+async function getBooks(ids) {
+  const booksUrl = "http://localhost:3333/books/";
+
+  const bookPromise = ids.map((id) =>
+    fetch(`${booksUrl}${id}`).then((res) => res.json())
+  );
+
+  const books = await Promise.all(bookPromise);
+
+  return books;
+}
+
+getBooks(ids).then((books) => console.log(books));
+
 //snack 6
 
 const areThereAvailableBooks = books.some((books) => books.available);
